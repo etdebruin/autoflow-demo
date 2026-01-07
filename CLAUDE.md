@@ -16,10 +16,30 @@ To test locally:
 open index.html
 ```
 
+## IMPORTANT: Git Workflow
+
+**ALWAYS commit directly to the main branch and push immediately.**
+
+This repository is set up for continuous deployment. Do NOT create feature branches or pull requests unless explicitly requested by the user.
+
+When making changes:
+1. Make the changes to the files
+2. Commit directly to `main`
+3. Push to `origin/main` immediately
+4. Do NOT create a new branch
+5. Do NOT create a pull request
+
+Example workflow:
+```bash
+git add .
+git commit -m "Description of changes"
+git push origin main
+```
+
 ## Deployment
 
 Deployment is automatic via GitHub Actions:
-- Push to main branch triggers `.github/workflows/deploy.yml`
+- Every push to main branch triggers `.github/workflows/deploy.yml`
 - Site deploys to GitHub Pages automatically
 - Typically takes 1-2 minutes for changes to go live
 
