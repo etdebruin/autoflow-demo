@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoFlow Demo - Voice Powered Development</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .counter {
+            font-size: 4em;
+            font-weight: bold;
+            color: #667eea;
+            margin: 30px 0;
+            transition: transform 0.2s;
+        }
+
+        .counter.animate {
+            transform: scale(1.2);
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1em;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: 600;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .info {
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .info h2 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .info p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .emoji {
+            font-size: 3em;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AutoFlow Demo</h1>
+        <p class="subtitle">Voice-Powered Development on Mobile</p>
+
+        <div class="emoji">🎤</div>
+
+        <div class="counter" id="counter">0</div>
+
+        <div class="buttons">
+            <button onclick="increment()">Increment</button>
+            <button onclick="decrement()">Decrement</button>
+            <button onclick="reset()">Reset</button>
+        </div>
+
+        <div class="info">
+            <h2>How It Works</h2>
+            <p>Speak to Claude Code on your phone, and watch changes deploy automatically via GitHub Actions. Try saying: "Change the background to ocean blue" or "Add a random quote button"!</p>
+        </div>
+    </div>
+
+    <script>
+        let count = 0;
+        const counterElement = document.getElementById('counter');
+
+        function updateCounter() {
+            counterElement.textContent = count;
+            counterElement.classList.add('animate');
+            setTimeout(() => {
+                counterElement.classList.remove('animate');
+            }, 200);
+        }
+
+        function increment() {
+            count++;
+            updateCounter();
+        }
+
+        function decrement() {
+            count--;
+            updateCounter();
+        }
+
+        function reset() {
+            count = 0;
+            updateCounter();
+        }
+    </script>
+</body>
+</html>
