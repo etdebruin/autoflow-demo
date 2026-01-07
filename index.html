@@ -14,11 +14,21 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #ff4444 0%, #ffaa00 100%);
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
+            animation: glow-bg 3s ease-in-out infinite;
+        }
+
+        @keyframes glow-bg {
+            0%, 100% {
+                background: linear-gradient(135deg, #ff4444 0%, #ffaa00 100%);
+            }
+            50% {
+                background: linear-gradient(135deg, #ffaa00 0%, #ff4444 100%);
+            }
         }
 
         .container {
@@ -46,9 +56,21 @@
         .counter {
             font-size: 4em;
             font-weight: bold;
-            color: #667eea;
+            color: #ff4444;
             margin: 30px 0;
             transition: transform 0.2s;
+            animation: glow-text 3s ease-in-out infinite;
+        }
+
+        @keyframes glow-text {
+            0%, 100% {
+                color: #ff4444;
+                text-shadow: 0 0 20px rgba(255, 68, 68, 0.5);
+            }
+            50% {
+                color: #ffaa00;
+                text-shadow: 0 0 20px rgba(255, 170, 0, 0.5);
+            }
         }
 
         .counter.animate {
@@ -68,16 +90,26 @@
             font-size: 1em;
             border: none;
             border-radius: 10px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #ff4444 0%, #ffaa00 100%);
             color: white;
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
             font-weight: 600;
+            animation: glow-btn 3s ease-in-out infinite;
+        }
+
+        @keyframes glow-btn {
+            0%, 100% {
+                box-shadow: 0 0 15px rgba(255, 68, 68, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 25px rgba(255, 170, 0, 0.6);
+            }
         }
 
         button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 5px 20px rgba(255, 68, 68, 0.5);
         }
 
         button:active {
@@ -161,7 +193,7 @@
         }
 
         function createConfetti() {
-            const colors = ['#667eea', '#764ba2', '#f093fb', '#f5576c', '#4facfe', '#00f2fe'];
+            const colors = ['#ff4444', '#ff6644', '#ff8844', '#ffaa00', '#ffcc00', '#ffee00'];
             const button = document.querySelector('.buttons button');
             const rect = button.getBoundingClientRect();
 
