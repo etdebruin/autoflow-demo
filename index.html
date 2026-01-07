@@ -225,6 +225,12 @@
             count = 0;
             updateCounter();
         }
+
+        // Auto-increment counter every second
+        setInterval(() => {
+            count++;
+            updateCounter();
+        }, 1000);
     </script>
 </body>
 </html>
