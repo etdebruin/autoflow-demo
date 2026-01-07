@@ -28,16 +28,29 @@ git push origin main
 
 The GitHub Action will automatically deploy your site to: `https://[your-username].github.io/autoflow-demo/`
 
-## Demo Ideas
+## Using Claude Code on Mobile
 
-Try these voice commands with Claude Code on your phone:
+### Important: Direct Commits (Not PRs)
 
-- "Change the background gradient to ocean blue and teal"
-- "Add a random quote button that displays inspirational quotes"
-- "Change the emoji to a rocket"
-- "Make the counter start at 100"
-- "Add a confetti effect when clicking increment"
-- "Change the heading color to gold"
+For this demo to work smoothly, you want Claude Code to commit directly to `main` and push (not create a PR).
+
+**How to do this:**
+- Be explicit in your voice commands that you want to commit and push
+- Stay on the `main` branch
+- Don't mention "PR" or "pull request"
+
+### Example Voice Commands
+
+Try these commands with Claude Code on your phone:
+
+- "Change the background gradient to ocean blue and teal, then commit and push it"
+- "Add a random quote button and push the change to main"
+- "Change the emoji to a rocket and deploy it"
+- "Make the counter start at 100, commit it"
+- "Add a confetti effect when clicking increment and push it"
+- "Change the heading color to gold and commit the change"
+
+**Pro tip**: End your requests with "and push it" or "and commit it" to avoid being asked about creating a PR.
 
 ## How It Works
 
