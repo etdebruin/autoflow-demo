@@ -106,6 +106,25 @@
             font-size: 3em;
             margin: 20px 0;
         }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            pointer-events: none;
+            animation: confetti-fall 1s ease-out forwards;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100px) rotate(720deg);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -141,9 +160,28 @@
             }, 200);
         }
 
+        function createConfetti() {
+            const colors = ['#667eea', '#764ba2', '#f093fb', '#f5576c', '#4facfe', '#00f2fe'];
+            const button = document.querySelector('.buttons button');
+            const rect = button.getBoundingClientRect();
+
+            for (let i = 0; i < 20; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = (rect.left + rect.width / 2 + (Math.random() - 0.5) * 100) + 'px';
+                confetti.style.top = (rect.top + (Math.random() - 0.5) * 20) + 'px';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                document.body.appendChild(confetti);
+
+                setTimeout(() => confetti.remove(), 1000);
+            }
+        }
+
         function increment() {
             count++;
             updateCounter();
+            createConfetti();
         }
 
         function decrement() {
