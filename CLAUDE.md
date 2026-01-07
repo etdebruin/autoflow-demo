@@ -2,6 +2,34 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+---
+
+# ⚠️ CRITICAL GIT WORKFLOW RULE ⚠️
+
+**DO NOT CREATE BRANCHES. DO NOT CREATE PULL REQUESTS.**
+
+When the user asks you to make ANY change to this repository:
+1. Make the changes to the files
+2. Commit directly to `main` (you are already on main)
+3. Push to `origin/main` immediately
+4. **NEVER run `git checkout -b`**
+5. **NEVER create a pull request**
+
+This is a continuous deployment demo. Every push to main auto-deploys.
+
+```bash
+# Correct workflow:
+git add .
+git commit -m "Description"
+git push origin main
+
+# WRONG - do not do this:
+git checkout -b feature-branch  # ❌ NEVER
+gh pr create                    # ❌ NEVER
+```
+
+---
+
 ## Project Overview
 
 This is a demonstration project showcasing voice-powered development using Claude Code on mobile devices. The app automatically deploys to GitHub Pages via GitHub Actions when changes are pushed to the main branch.
@@ -14,26 +42,6 @@ To test locally:
 ```bash
 # Simply open index.html in a browser
 open index.html
-```
-
-## IMPORTANT: Git Workflow
-
-**ALWAYS commit directly to the main branch and push immediately.**
-
-This repository is set up for continuous deployment. Do NOT create feature branches or pull requests unless explicitly requested by the user.
-
-When making changes:
-1. Make the changes to the files
-2. Commit directly to `main`
-3. Push to `origin/main` immediately
-4. Do NOT create a new branch
-5. Do NOT create a pull request
-
-Example workflow:
-```bash
-git add .
-git commit -m "Description of changes"
-git push origin main
 ```
 
 ## Deployment
